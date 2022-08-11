@@ -41,7 +41,7 @@ class RegisterType extends AbstractType
             ->add('email',EmailType::class, [
                 'label' => 'Votre email :',
                 'constraints' => new Length([
-                    'min' => 2,
+                    'min' => 5,
                     'max' => 60,
                 ]),
                 'attr' => [
