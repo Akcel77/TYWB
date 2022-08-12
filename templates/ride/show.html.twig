@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ride.title }} - Travel With Your Bike{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-5">
+            <img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid">
+        </div>
+        <div class="col-md-7 my-auto">
+            <h3>{{ ride.title }}</h3>
+            <p>{{ ride.subtitle }}</p>
+            <span class="product-page-price">{{ (ride.price / 100)|number_format(2, ',', '.') }} €</span>
+            <hr>
+            <p>
+                {{ ride.description }}
+            </p>
+{#            <a href="{{ path('add_to_cart', { 'id' : ride.id }) }}" class="btn btn-primary">Ajouter au panier</a>#}
+        </div>
+    </div>
+    <hr>
+
+
+
+
+{% endblock %}
