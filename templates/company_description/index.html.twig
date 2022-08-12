@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block title %}Qui sommes nous ? - Travel With Your Bike{% endblock %}
+
+
+
+{% block content %}
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Qui sommes nous ? <br><span class="text-muted">Guy et Nath</span></h2>
+            <p>Nous sommes une petite société de transport de personnes et motos qui vient d’ouvrir ses portes, basée
+                dans le département du Lot, à Cahors, avec à son bord deux personnes :<br><br>
+                Guy, chauffeur routier à la retraite et passionné par la moto depuis toujours. C’est de cette
+                frénésie qu’est né ce projet, allier un service de confiance tout en étant entouré de modèles uniques
+                ainsi que leurs propriétaires eux aussi avides de la même passion et de continuer à parcourir les routes.
+                <br><br>
+                Nath, gestionnaire administrative en poste, une précieuse alliée qui permet de vous assurer une
+                disponibilité dans les trajets, la gestion financière de l’entreprise, la surveillance de la combinaison des
+                modèles pour leur poids ainsi que le service relationnel.</p>
+        </div>
+        <div class="col-md-5 my-auto mx-auto">
+            <img src="{{ asset('assets/img/guy.png') }}" class="img-fluid " alt="Guy Patron de Travel with your Bike">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading mb-5">Que proposons nous ?</h2>
+            <p>Nous vous proposons un transport sécurisé de nuit pour vous et votre moto sur plusieurs grandes
+                destinations de France au départ de Calais. <br><br>
+                Pour cette première année les arrivées se feront à Marseille, Grenoble ou encore Cahors.
+                À raison de deux à trois départs par semaine selon le planning, vous embarquez en soirée, votre moto
+                est arrimée sur une remorque adaptée par un professionnel et vous et votre bagage prendrez place
+                dans un van avec des fauteuils confortables qui vous permettront de vous reposer pendant ce trajet qui
+                durera moins de 12h. Une glacière est également mise à disposition pour vous proposer des
+                rafraîchissements.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('assets/img/moto.jpg') }}" class="img-fluid" alt="Motard sur sa moto">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading mb-5">Quels avantages offrent ce service ? </h2>
+            <p>Premièrement ce service vous permet d’éviter 1000 km d'autoroute monotone, deuxièmement vous
+                pourrez vous économiser physiquement et le plus important, vous préservez votre machine (pneu,
+                moteur, usure) pour finir vous arrivez en pleine forme à destination. <br> <br>
+                Aussi, nous vous proposons un prix fixe qui englobe le transport, l’arrimage et la sécurité, fini les
+                questions gênantes telles que « comment vais-je pouvoir me rendre tel jour à telle heure à la gare pour
+                récupérer ma moto ? », « ou vais-je dormir pour faire une pause sur ma route ? », « qui va surveiller ma
+                moto sur le parking ? ». Vous n’avez rien à penser nous le faisons pour vous!</p>
+        </div>
+        <div class="col-md-5 my-auto mx-auto">
+            <img src="{{ asset('assets/img/autoroute.jpg') }}" class="img-fluid" alt="Autoroute">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading mb-5">Pourquoi ces trajets ?</h2>
+            <p><strong>De Calais à Marseille : </strong>si vous désirez vous rendre en Corse il ne vous reste qu'à prendre le bateau,
+                aussi, vous êtes à proximité de la frontière italienne ou encore vous pouvez profiter de la Côte d'Azur.
+                <br><br>
+                <strong>De Calais à Grenoble :</strong> vous aurez le loisir de prendre la n 85, route Napoléon, balade mythique pour le
+                motard qui descend jusqu'à Cannes. Il ne vous restera qu’à profiter du Sud de la France.
+                <br><br>
+                <strong>De Calais à Cahors : </strong>c’est une ville très prisée des anglais ?? de part son patrimoine, les routes sont ??
+                arbres/virages etc...... Chemin de Compostelle ??
+                Dans tous les cas une fois arrivé à destination vous êtes libre d'aller où vous le désirez ou même de
+                trouver une location pour vos vacances.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('assets/img/motoSec.jpg') }}" class="img-fluid" alt="Motard sur sa moto">
+        </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+{% endblock %}
