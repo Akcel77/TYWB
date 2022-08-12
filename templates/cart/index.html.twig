@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart - Travel With Your Bike{% endblock %}
+
+{% block content %}
+    <h1>Ma réservation</h1>
+    <p>Retrouver ici l'ensemble des informations pour votre réservation</p>
+
+    {% if cart|length > 0 %}
+            {% for ride in cart %}
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="/uploads/{{ ride.ride.illustration }}" alt="{{ ride.ride.title }}" class="img-fluid">
+                    </div>
+                    <div class="col-md-7 my-auto">
+                        <h3>{{ ride.ride.title }}</h3>
+                        <p>{{ ride.ride.subtitle }}</p>
+                        <span class="product-page-price">{{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span>
+                        <hr>
+                        <p>
+                            {{ ride.ride.description }}
+                        </p>
+                        <div class="text-right">
+                            <a href="#" class="btn btn-primary btn-block mt-5">Valider mon panier</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+    {% else %}
+        <hr>
+        <p><b>Votre panier est vide</b></p>
+
+    {% endif %}
+{% endblock %}
