@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,6 +47,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Moto::class, mappedBy="user")
+     */
+    private $motos;
+
+    public function __construct()
+    {
+        $this->motos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -155,6 +167,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Moto>
+     */
+    public function getMotos(): Collection
+    {
+        return $this->motos;
+    }
+
+    public function addMoto(Moto $moto): self
+    {
+        if (!$this->motos->contains($moto)) {
+            $this->motos[] = $moto;
+            $moto->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMoto(Moto $moto): self
+    {
+        if ($this->motos->removeElement($moto)) {
+            // set the owning side to null (unless already changed)
+            if ($moto->getUser() === $this) {
+                $moto->setUser(null);
+            }
+        }
 
         return $this;
     }
