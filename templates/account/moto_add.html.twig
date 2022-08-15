@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une moto{% endblock %}
+
+{% block content %}
+    <h1>Gérer mes motos</h1><br/>
+    <a href="{{ path('account_moto') }}">Retour</a>
+    <hr>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-12">{{ form_row(form.brand) }}</div>
+        <div class="col-md-6">{{ form_row(form.model) }}</div>
+        <div class="col-md-6">{{ form_row(form.weight) }}</div>
+        <div class="col-md-6">{{ form_row(form.matriculation) }}</div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
