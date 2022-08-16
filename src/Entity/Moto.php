@@ -43,6 +43,11 @@ class Moto
      */
     private $weight;
 
+    public function __toString()
+    {
+        return '[strong] Marque: [/strong]' . $this->getBrand().'[br][strong] Modèle: [/strong] '.$this->getModel().'[br][strong] Immatriculation: [/strong]'.$this->getMatriculation().'[br][strong] Poids: [/strong]'.$this->getWeight() . 'kg';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
