@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider mon trajet - Nom du Site{% endblock %}
+
+{% block content %}
+    <h2>Je valide mon trajet</h2>
+
+    <p>Choissez votre moto avant de valider votre voyage avec Travel With Your Bike</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+
+            {% set formHtml %}
+                {{ form_start(form, {action:path('order' )}) }}
+                {{ form_label(form.motos, 'Choissez votre moto') }}
+                <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>
+                {{ form_end(form) }}
+            {% endset %}
+
+            {{ formHtml|replace({'[br]' : '<br/>', '[strong]' : '<strong>', '[/strong]' : '</strong>'})|raw }}
+
+
+
+        </div>
+{#        <div class="col-md-6">#}
+{#            <div class="text-center">#}
+{#                <b>Recap de la commande</b>#}
+{#                <p>Retrouver le recapitulatif de la commande</p>#}
+{#            </div>#}
+{#            <div class="order-summary">#}
+{#                {% for key,product in cart %}#}
+{#                    <div class="row {% if key > 0 %} mt-2 {% endif %}">#}
+{#                        <div class="col-2">#}
+{#                            <img src="/uploads/{{ product.product.illustration }}" class="img-validate" alt=" {{ product.product.name }}" height="75px">#}
+{#                        </div>#}
+{#                        <div class="col-8 my-auto">#}
+{#                            {{ product.product.name }}<br/>#}
+{#                            <small> {{ product.product.subtitle }}</small>#}
+{#                        </div>#}
+{#                        <div class="col-2 my-auto">#}
+{#                            X {{ product.quantity }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+
+{% endblock %}
