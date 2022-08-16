@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- Favicons -->
+    <link rel="icon" href="{{ asset('assets/img/helmet.png') }}" />
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -55,13 +58,16 @@
                     </li>
                 {% endif %}
             </ul>
-                        <div class="navbar-item-custom">
-                            {% if app.user %}
-                                <a href="{{ path('account') }}" class="login-group">Mon compte <small>({{ app.user.firstname }})</small> </a> | <a href="{{ path('app_logout') }}" class="login-group">Deconnexion</a>
-                            {% else %}
-                                <a href="{{ path('app_login') }}" class="login-group">Connexion</a> | <a href="{{ path('register') }}" class="login-group">Inscription</a>
-                            {% endif %}
-                        </div>
+                <div class="navbar-item-custom">
+                    {% if app.user %}
+                        <a href="{{ path('account') }}" class="login-group">Mon compte <small>({{ app.user.firstname }})</small> </a> | <a href="{{ path('app_logout') }}" class="login-group">Deconnexion</a>
+                    {% else %}
+                        <a href="{{ path('app_login') }}" class="login-group">Connexion</a> | <a href="{{ path('register') }}" class="login-group">Inscription</a>
+                    {% endif %}
+                </div>
+                <a href="{{ path('cart') }}">
+                    <img src="{{ asset('assets/img/rider.png') }}" class="cart-icon" alt="Mon panier">
+                </a>
 
         </div>
     </nav>
