@@ -27,10 +27,10 @@ class AccountMotoController extends AbstractController
     /**
      * @Route("/account/bike", name="account_moto")
      */
-    public function index(): Response
+    public function index(Cart $cart): Response
     {
         return $this->render('account/moto.html.twig', [
-
+            'cart' => $cart->getFull(),
         ]);
     }
 
@@ -58,13 +58,14 @@ class AccountMotoController extends AbstractController
 
         return $this->render('account/moto_add.html.twig', [
             'form' => $form->createView(),
+            'cart' => $cart->getFull(),
         ]);
     }
 
     /**
      * @Route("/account/modify-a-bike/{id}", name="account_moto_edit")
      */
-    public function edit(Request $request, $id): Response
+    public function edit(Request $request, $id, Cart $cart): Response
     {
         $moto = $this->entityManager->getRepository(Moto::class)->findOneById($id);
 
@@ -82,6 +83,7 @@ class AccountMotoController extends AbstractController
 
         return $this->render('account/moto_add.html.twig', [
             'form' => $form->createView(),
+            'cart' => $cart->getFull(),
         ]);
     }
 

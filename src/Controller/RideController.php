@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Classe\Search;
 use App\Entity\Ride;
 use App\Form\SearchType;
@@ -24,7 +25,7 @@ class RideController extends AbstractController
     /**
      * @Route("/ride", name="rides")
      */
-    public function index(Request $request): Response
+    public function index(Request $request, Cart $cart): Response
     {
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
@@ -40,13 +41,14 @@ class RideController extends AbstractController
         return $this->render('ride/index.html.twig', [
             'rides' => $rides,
             'form' => $form->createView(),
+            'cart' => $cart->getFull(),
         ]);
     }
 
     /**
      * @Route("/ride/{slug}", name="ride")
      */
-    public function show($slug)
+    public function show($slug, Cart $cart)
     {
         $ride = $this->entityManager->getRepository(Ride::class)->findOneBy(array('slug' => $slug));
 
@@ -55,6 +57,7 @@ class RideController extends AbstractController
         }
         return $this->render('ride/show.html.twig', [
             'ride' => $ride,
+            'cart' => $cart->getFull(),
         ]);
     }
 }

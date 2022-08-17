@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Form\ChangePasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +28,7 @@ class AccountPasswordController extends AbstractController
     /**
      * @Route("/account/password-modify", name="account_password")
      */
-    public function index(Request $request, UserPasswordHasherInterface $encoder): Response
+    public function index(Request $request, UserPasswordHasherInterface $encoder, Cart $cart): Response
     {
         $notification = null;
         $user = $this->getUser();
@@ -53,6 +54,7 @@ class AccountPasswordController extends AbstractController
         return $this->render('account/password.html.twig', [
             'form' => $form->createView(),
             'notification' => $notification,
+            'cart' => $cart->getFull(),
         ]);
     }
 }
