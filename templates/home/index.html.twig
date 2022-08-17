@@ -21,7 +21,7 @@
                 modèles pour leur poids ainsi que le service relationnel.</p>
         </div>
         <div class="col-md-5 my-auto mx-auto">
-            <img src="{{ asset('assets/img/guy.png') }}" class="img-fluid " alt="Guy Patron de Travel with your Bike">
+            <img src="{{ asset('assets/img/guy.png') }}" data-aos="zoom-out-up" class="img-fluid " alt="Guy Patron de Travel with your Bike">
         </div>
     </div>
 
@@ -40,7 +40,7 @@
                 rafraîchissements.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="{{ asset('assets/img/moto.jpg') }}" class="img-fluid" alt="Motard sur sa moto">
+            <img src="{{ asset('assets/img/moto.jpg') }}" data-aos="zoom-out-up" class="img-fluid" alt="Motard sur sa moto">
         </div>
     </div>
 
@@ -58,7 +58,7 @@
                 moto sur le parking ? ». Vous n’avez rien à penser nous le faisons pour vous!</p>
         </div>
         <div class="col-md-5 my-auto mx-auto">
-            <img src="{{ asset('assets/img/autoroute.jpg') }}" class="img-fluid" alt="Autoroute">
+            <img src="{{ asset('assets/img/autoroute.jpg') }}" data-aos="zoom-out-up" class="img-fluid" alt="Autoroute">
         </div>
     </div>
 
@@ -79,7 +79,12 @@
                 trouver une location pour vos vacances.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="{{ asset('assets/img/motoSec.jpg') }}" class="img-fluid" alt="Motard sur sa moto">
+            <img src="{{ asset('assets/img/motoSec.jpg') }}" data-aos="zoom-out-up" class="img-fluid" alt="Motard sur sa moto">
         </div>
     </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
 {% endblock %}
