@@ -18,6 +18,9 @@
                             <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid"></a>
                             <h5>{{ ride.title }}</h5>
                             <span class="product-subtitle">{{ ride.subtitle }}</span>
+                            {% if ride.maxWeight < 1600 %}
+                                <span class="product-subtitle badge-danger">Attention il ne reste que {{ ride.maxWeight }}kg de chargement</span>
+                            {% endif %}
                             <span class="product-subtitle"><strong>Départ le :</strong>  {{ ride.departureDate|format_datetime(locale='fr') }}</span>
                             <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
                             <span class="product-price">299,90 €</span>
