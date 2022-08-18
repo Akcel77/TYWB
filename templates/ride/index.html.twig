@@ -15,7 +15,7 @@
                 {% for ride in rides %}
                     <div class="col-md-4">
                         <div class="product-item text-center">
-                            <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid"></a>
+                            <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid w-75" ></a>
                             <h5>{{ ride.title }}</h5>
                             <span class="product-subtitle">{{ ride.subtitle }}</span>
                             {% if ride.maxWeight < 1600 %}
