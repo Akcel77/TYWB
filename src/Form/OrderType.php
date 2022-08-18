@@ -18,14 +18,14 @@ class OrderType extends AbstractType
             ->add('motos', EntityType::class,[
                 'class' => Moto::class,
                 'choices' => $user->getMotos(),
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true,
                 'label' => 'Moto',
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider ma commande',
                 'attr' => [
-                    'class' => 'btn btn-success btn-block'
+                    'class' => 'btn btn-primary btn-block'
                 ]
             ])
         ;
