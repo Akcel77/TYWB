@@ -8,10 +8,10 @@
     <p>Choissez votre moto avant de valider votre voyage avec Travel With Your Bike</p>
     <hr>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
 
             {% set formHtml %}
-                {{ form_start(form, {action:path('order' )}) }}
+                {{ form_start(form, {action:path('order_recap' )}) }}
                 {{ form_label(form.motos, 'Choissez votre moto') }}
                 <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>
                 {{ form_end(form) }}
@@ -22,28 +22,31 @@
 
 
         </div>
-{#        <div class="col-md-6">#}
-{#            <div class="text-center">#}
-{#                <b>Recap de la commande</b>#}
-{#                <p>Retrouver le recapitulatif de la commande</p>#}
-{#            </div>#}
-{#            <div class="order-summary">#}
-{#                {% for key,product in cart %}#}
-{#                    <div class="row {% if key > 0 %} mt-2 {% endif %}">#}
-{#                        <div class="col-2">#}
-{#                            <img src="/uploads/{{ product.product.illustration }}" class="img-validate" alt=" {{ product.product.name }}" height="75px">#}
-{#                        </div>#}
-{#                        <div class="col-8 my-auto">#}
-{#                            {{ product.product.name }}<br/>#}
-{#                            <small> {{ product.product.subtitle }}</small>#}
-{#                        </div>#}
-{#                        <div class="col-2 my-auto">#}
-{#                            X {{ product.quantity }}#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
+        <div class="col-md-5 block-order-summary">
+            <div class="text-center mb-5">
+                <h4>Retrouver le recapitulatif de votre trajet</h4>
+            </div>
+            <div class="order-summary my-auto ml-3 mt-3">
+                {% for ride in cart %}
+                    <div class="row">
+                        <div class="col-7 col-md-12">
+                            <img src="/uploads/{{ ride.ride.illustration }}" class="img-validate mx-auto" alt=" {{ ride.ride.title }}" height="250px">
+                        </div>
+                        <div class="col-12 mt-2">
+                            <h5>{{ ride.ride.title }}</h5><br>
+                            <span class="product-subtitle">{{ ride.ride.subtitle }}</span><br>
+
+                            <span class="product-subtitle"><strong>Départ le :</strong>  {{ride. ride.departureDate|format_datetime(locale='fr') }}</span><br>
+                            <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.ride.arrivalDate|format_datetime(locale='fr') }}</span><br>
+                            <span class="product-price"><strong>Prix : </strong>299,90 €</span><br>
+                            <strong>A payer aujourd'hui <small>(accompte)</small> : </strong> {{ ride.ride.price|number_format(2, ',','.') }}  €</span>
+                            <br>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
 {% endblock %}
