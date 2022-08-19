@@ -14,19 +14,26 @@
             <div class="row product-container">
                 {% for ride in rides %}
                     <div class="col-md-4">
-                        <div class="product-item text-center">
-                            <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid w-75" ></a>
-                            <h5>{{ ride.title }}</h5>
-                            <span class="product-subtitle">{{ ride.subtitle }}</span>
-                            {% if ride.maxWeight < 1600 %}
-                                <span class="product-subtitle badge-danger">Attention il ne reste que {{ ride.maxWeight }}kg de chargement</span>
-                            {% endif %}
-                            <span class="product-subtitle"><strong>Départ le :</strong>  {{ ride.departureDate|format_datetime(locale='fr') }}</span>
-                            <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
-                            <span class="product-price">299,90 €</span>
+                        <div class="product-item card text-center">
+                            <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid card-img-top" ></a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ ride.title }}</h5>
+                                <p class="card-text">
+                                    <span class="product-subtitle">{{ ride.subtitle }}</span>
+                                    {% if ride.maxWeight < 300 %}
+                                        <span class="product-subtitle badge-danger">Attention il ne reste que {{ ride.maxWeight }}kg de chargement</span>
+                                    {% endif %}
+                                    <span class="product-subtitle"><strong>Départ le :</strong>  {{ ride.departureDate|format_datetime(locale='fr') }}</span>
+                                    <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
+                                    <span class="product-price">299,90 €</span> <br>
+                                    <a href="{{ path('ride', {'slug': ride.slug} ) }}" class="btn btn-primary mt-2">Choisir cette date</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                 {% endfor %}
+
             </div>
         </div>
     </div>
