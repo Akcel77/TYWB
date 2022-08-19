@@ -56,6 +56,21 @@ class Order
      */
     private $stripeSessionId;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $motoWeight;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $passengers;
+
+    public function __toString()
+    {
+        return $this->getReference();
+    }
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
@@ -164,6 +179,30 @@ class Order
     public function setStripeSessionId(?string $stripeSessionId): self
     {
         $this->stripeSessionId = $stripeSessionId;
+
+        return $this;
+    }
+
+    public function getMotoWeight(): ?int
+    {
+        return $this->motoWeight;
+    }
+
+    public function setMotoWeight(int $motoWeight): self
+    {
+        $this->motoWeight = $motoWeight;
+
+        return $this;
+    }
+
+    public function getPassengers(): ?int
+    {
+        return $this->passengers;
+    }
+
+    public function setPassengers(int $passengers): self
+    {
+        $this->passengers = $passengers;
 
         return $this;
     }
