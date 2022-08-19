@@ -20,7 +20,7 @@ class OrderType extends AbstractType
                 'choices' => $user->getMotos(),
                 'multiple' => false,
                 'expanded' => true,
-                'label' => 'Moto',
+                'label' => false,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider ma commande',
