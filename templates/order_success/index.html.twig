@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de commande - Travel With Your Bike{% endblock %}
+
+{% block content %}
+    <h2>Confirmation de réservation</h2>
+    <p>Bonjour <strong>{{ order.user.lastname }} {{ order.user.firstname }}</strong><br><br></p>
+    <p>Nous vous remercions pour votre réservation nº <strong>{{ order.reference }}</strong> avec Travel With Your Bike</p><br>
+    <p>Une confimation vient de vous etre envoye par email<strong> {{ order.user.email }}</strong></p>
+    <hr>
+    <hr>
+    <p>Un récapitulatif de votre commande est disponible dans votre compte,rendez-vous dans votre <a href="{{ path('account_order') }}">compte</a></p>
+{% endblock %}
