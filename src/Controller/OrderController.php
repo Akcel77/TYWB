@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
+use App\Entity\Ride;
 use App\Form\OrderType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,7 +48,7 @@ class OrderController extends AbstractController
     }
 
     /**
-     * @Route("/order/summary", name="order_recap")
+     * @Route("/order/summary", name="order_recap", methods={"POST"})
      */
     public function add(Cart $cart, Request $request): Response
     {
@@ -62,7 +63,6 @@ class OrderController extends AbstractController
             //initialisation de la date
             $date = new \DateTimeImmutable();
 
-
             $moto = $form->get('motos')->getData();
             $moto_weight = $moto->getWeight();
             $moto_content = $moto->getBrand().' '.$moto->getModel();
@@ -72,7 +72,7 @@ class OrderController extends AbstractController
             //enregistrer ma commande Order()
             $order = new Order();
             $reference = $date->format('dmY').'-'.uniqid();
-//            $order->setReference($reference);
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setMoto($moto_content);
@@ -87,6 +87,9 @@ class OrderController extends AbstractController
                 $orderDetails->setRide($ride['ride']->getTitle());
                 $orderDetails->setPrice($ride['ride']->getPrice());
                 $this->entityManager->persist($orderDetails);
+//                $ride['ride']->setMaxWeight( $ride['ride']->getMaxWeight() - $moto_weight);
+
+
             }
 
             $this->entityManager->flush();
@@ -94,7 +97,7 @@ class OrderController extends AbstractController
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'moto' => $moto_content,
-//                'reference' => $order->getReference(),
+                'reference' => $order->getReference(),
             ]);
         }
 
