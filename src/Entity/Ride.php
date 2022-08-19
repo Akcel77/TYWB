@@ -68,6 +68,11 @@ class Ride
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $maxPeople;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -189,6 +194,18 @@ class Ride
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getMaxPeople(): ?int
+    {
+        return $this->maxPeople;
+    }
+
+    public function setMaxPeople(int $maxPeople): self
+    {
+        $this->maxPeople = $maxPeople;
 
         return $this;
     }
