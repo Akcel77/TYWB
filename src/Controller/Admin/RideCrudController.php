@@ -30,6 +30,7 @@ class RideCrudController extends AbstractCrudController
             DateTimeField::new('departureDate', 'Départ le'),
             DateTimeField::new('arrivalDate', 'arrivée le'),
             IntegerField::new('maxWeight', 'Poids max'),
+            IntegerField::new('maxPeople', 'Nombre de personne max'),
             ImageField::new('illustration')
                 ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads/')
