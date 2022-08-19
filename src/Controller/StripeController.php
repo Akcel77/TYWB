@@ -46,8 +46,7 @@ class StripeController extends AbstractController
                 ],
                 'quantity' => 1,
             ];
-//            dd($moto);
-//            $moto['ride']->setMaxWeight( $ride['ride']->getMaxWeight() - $moto_weight);
+
         }
 
         Stripe::setApiKey('sk_test_51LG57CEVG9yfXzpI8HwOcrrAjHVh6gX6UKmn1k9otYwdm7ftZLaAzpt94Sjr0cwznt3GWD91btG1pWWyGg5jbKr400B5tIoPZi');
@@ -61,12 +60,12 @@ class StripeController extends AbstractController
                 'card',
             ],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/commande/merci/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN . '/commande/erreur/{CHECKOUT_SESSION_ID}',
+            'success_url' => $YOUR_DOMAIN . '/order/success/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN . '/order/cancel/{CHECKOUT_SESSION_ID}',
         ]);
 
-//        $order->setStripeSessionId($checkout_session->id);
-//        $entityManager->flush();
+        $order->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
         return $this->redirect($checkout_session->url);
     }
