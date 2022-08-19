@@ -39,7 +39,7 @@
                             <span class="product-subtitle"><strong>Départ le :</strong>  {{ride. ride.departureDate|format_datetime(locale='fr') }}</span><br>
                             <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.ride.arrivalDate|format_datetime(locale='fr') }}</span><br>
                             <span class="product-price"><strong>Prix : </strong>299,90 €</span><br>
-                            <strong>A payer aujourd'hui <small>(accompte)</small> : </strong> {{ ride.ride.price|number_format(2, ',','.') }}  €</span>
+                            <strong>A payer aujourd'hui <small>(accompte)</small> : </strong> {{ (ride.ride.price / 100 )|number_format(2, ',','.') }}  €</span>
                             <br>
                         </div>
 
