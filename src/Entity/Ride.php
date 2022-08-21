@@ -73,6 +73,11 @@ class Ride
      */
     private $maxPeople;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,6 +211,18 @@ class Ride
     public function setMaxPeople(int $maxPeople): self
     {
         $this->maxPeople = $maxPeople;
+
+        return $this;
+    }
+
+    public function isIsBest(): ?bool
+    {
+        return $this->isBest;
+    }
+
+    public function setIsBest(bool $isBest): self
+    {
+        $this->isBest = $isBest;
 
         return $this;
     }
