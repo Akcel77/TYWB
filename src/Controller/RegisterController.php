@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,7 +43,10 @@ class RegisterController extends AbstractController
 
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-
+                $mail = new Mail();
+                $content = "Bonjour ".$user->getFirstName()." <br> Bienvenue sur Travel With Your Bike, pour un transport sécurisé de nuit pour vous et votre moto sur plusieurs grandes destinations de France au départ de Calais.
+  <br>";
+                $mail->send($user->getEmail(), $user->getUsername(), 'Bienvenue sur le site Travel With Your Bike', $content);
 
                 $notification = 'Votre compte a bien été créé !';
             }
