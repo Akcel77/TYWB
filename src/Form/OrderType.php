@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Moto;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +22,12 @@ class OrderType extends AbstractType
                 'multiple' => false,
                 'expanded' => true,
                 'label' => false,
+            ])
+            ->add('passengers', IntegerType::class, [
+                'label' => 'Nombre de passager,Maximum : 2 (+ 50,00€)',
+                'attr' => [
+                    'placeholder' => 'Merci de saisir le nombre de passager',
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider ma commande',
