@@ -38,6 +38,7 @@ class RideCrudController extends AbstractCrudController
                 ->setRequired(false),
             TextField::new('subtitle'),
             TextAreaField::new('description')->hideOnIndex(),
+            BooleanField::new('isBest'),
             MoneyField::new('price')->setCurrency('EUR'),
             AssociationField::new('category'),
         ];
