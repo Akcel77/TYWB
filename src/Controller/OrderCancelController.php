@@ -33,6 +33,9 @@ class OrderCancelController extends AbstractController
         }
 
         //TO DO: Envoyer un email a notre client pour lui indiquer l'echec de paiement
+        $mail = new Mail();
+        $content = "<br> Bonjour " .$order->getUser()->getFirstName(). " <br> Une erreure s'est produite lors de votre commande <br>";
+        $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre payement n\'a pas été validé ', $content);
 
         return $this->render('order_cancel/index.html.twig', [
             'cart' => $cart->getFull(),

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use App\Entity\Ride;
 use Doctrine\ORM\EntityManagerInterface;
@@ -48,9 +49,9 @@ class OrderSuccessController extends AbstractController
             $this->entityManager->flush();
             //Envoyer un email a notre client pour lui confirmer la commande
 
-//            $mail = new Mail();
-//            $content = "<br> Bonjour " .$order->getUser()->getFirstName(). " <br> Merci pour votre commande <br>";
-//            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre commande est bien validee', $content);
+            $mail = new Mail();
+            $content = "<br> Bonjour " .$order->getUser()->getFirstName(). " <br> Merci pour votre réservation avec Travel With Your Bike <br>";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre réservation est bien validee', $content);
         }
 
 
