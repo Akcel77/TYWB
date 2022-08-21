@@ -13,6 +13,7 @@
             <h1>Nos dates</h1>
             <div class="row product-container">
                 {% for ride in rides %}
+                    {% if ride.maxPeople > 0 %}
                     <div class="col-md-4">
                         <div class="product-item card text-center">
                             <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid card-img-top" ></a>
@@ -23,14 +24,22 @@
                                     {% if ride.maxWeight < 300 %}
                                         <span class="product-subtitle badge-danger">Attention il ne reste que {{ ride.maxWeight }}kg de chargement</span>
                                     {% endif %}
-                                    <span class="product-subtitle"><strong>Départ le :</strong>  {{ ride.departureDate|format_datetime(locale='fr') }}</span>
-                                    <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
-                                    <span class="product-price">299,90 €</span> <br>
+                                    {% if ride.maxPeople <= 1 %}
+                                        <span class="product-subtitle badge-danger">Attention il ne reste que {{ ride.maxPeople }} place</span>
+                                    {% endif %}
+                                <hr>
+                                    <span class="product-subtitle"><strong>Départ le :</strong> <br> {{ ride.departureDate|format_datetime(locale='fr') }}</span>
+                                    <span class="product-subtitle"><strong>Arrivée le :</strong> <br> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
+                                <hr>
+                                    <span class="product-price"><strong>Prix du voyage :</strong> 299,90 €</span> <br>
+                                    <span class="product-price"><strong>A payer aujourd'hui : {{ (ride.price / 100)|number_format(2, ',', '.') }} €</strong></span> <br>
+
                                     <a href="{{ path('ride', {'slug': ride.slug} ) }}" class="btn btn-primary mt-2">Choisir cette date</a>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    {% endif %}
 
                 {% endfor %}
 
