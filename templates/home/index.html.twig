@@ -4,6 +4,15 @@
 
 {% block content %}
 
+    <h3>Il ne reste que quelques places</h3>
+    <p class="strong">C'est dates sont bientôt completes!</p>
+    <div class="row">
+        {% for ride in rides %}
+            <div class="col-md-4">
+                {% include 'ride/single_product.html.twig' %}
+            </div>
+        {% endfor %}
+    </div><!-- /.row -->
 
     <hr class="featurette-divider">
 
