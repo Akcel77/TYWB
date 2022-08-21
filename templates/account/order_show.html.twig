@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande - Travel With Your Bike{% endblock %}
+
+{% block content %}
+
+    <h1>Ma commande {{ order.reference }}</h1>
+
+    <p>
+        <a href="{{ path('account_order') }}">Retour</a>
+    </p>
+    <hr>
+
+    <strong> Commande passée le : </strong>{{ order.createdAt|date('d/m/Y') }}<br>
+
+    <strong>Référence : </strong><small> {{ order.reference }}</small><br>
+    <strong>Détail de la commande :</strong> <br>
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th scope="col">Trajet</th>
+            <th scope="col">Accompte</th>
+            <th scope="col">Reste à payer </th>
+            <th scope="col">Moto</th>
+            <th scope="col">Nombre de passager</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in order.orderDetails  %}
+            <tr>
+                {{ dump(product) }}
+
+                <td>{{ product.ride }}</td>
+                <td>{{ (product.price / 100)|number_format(2, ',','.') }} €</td>
+                <td>249,99 €</td>
+                <td>{{ product.myOrder.moto | raw }}</td>
+                <td>{{ product.myOrder.passengers }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-right">
+
+{#        <strong>Total : </strong> {{ (order.price  / 100)|number_format(2, ',','.') }} €<br>#}
+    </div>
+
+
+
+{% endblock %}
+
