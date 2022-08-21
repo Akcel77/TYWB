@@ -65,6 +65,9 @@ class OrderController extends AbstractController
 
             $moto = $form->get('motos')->getData();
             $moto_weight = $moto->getWeight();
+            $passengers = $form->getData();
+            $passenger = $passengers['passengers'];
+
             $moto_content = $moto->getBrand().' '.$moto->getModel();
             $moto_content .= '<br/>'.$moto->getMatriculation();
             $moto_content .= '<br/>'. $moto->getWeight().' kg';
@@ -73,7 +76,9 @@ class OrderController extends AbstractController
             $order = new Order();
             $reference = $date->format('dmY').'-'.uniqid();
             $order->setReference($reference);
+            $order->setPassengers($passenger);
             $order->setUser($this->getUser());
+            $order->setMotoWeight($moto_weight);
             $order->setCreatedAt($date);
             $order->setMoto($moto_content);
             $order->setIsPaid(0);
@@ -87,14 +92,12 @@ class OrderController extends AbstractController
                 $orderDetails->setRide($ride['ride']->getTitle());
                 $orderDetails->setPrice($ride['ride']->getPrice());
                 $this->entityManager->persist($orderDetails);
-//                $ride['ride']->setMaxWeight( $ride['ride']->getMaxWeight() - $moto_weight);
-
-
             }
 
             $this->entityManager->flush();
 
             return $this->render('order/add.html.twig', [
+                'order' => $order,
                 'cart' => $cart->getFull(),
                 'moto' => $moto_content,
                 'reference' => $order->getReference(),
