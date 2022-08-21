@@ -33,6 +33,11 @@ class OrderDetails
      */
     private $price;
 
+    public function __toString()
+    {
+        return $this->getRide() . ' - Référence : '. $this->getMyOrder();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
