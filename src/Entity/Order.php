@@ -66,6 +66,11 @@ class Order
      */
     private $passengers;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ride::class, inversedBy="orders")
+     */
+    private $ride;
+
     public function __toString()
     {
         return $this->getReference();
@@ -203,6 +208,18 @@ class Order
     public function setPassengers(int $passengers): self
     {
         $this->passengers = $passengers;
+
+        return $this;
+    }
+
+    public function getRide(): ?Ride
+    {
+        return $this->ride;
+    }
+
+    public function setRide(?Ride $ride): self
+    {
+        $this->ride = $ride;
 
         return $this;
     }
