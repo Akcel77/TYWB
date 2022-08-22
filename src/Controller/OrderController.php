@@ -91,8 +91,11 @@ class OrderController extends AbstractController
                 $orderDetails->setMyOrder($order);
                 $orderDetails->setRide($ride['ride']->getTitle());
                 $orderDetails->setPrice($ride['ride']->getPrice());
+
+                $order->setRide($ride['ride']);
                 $this->entityManager->persist($orderDetails);
             }
+
 
             $this->entityManager->flush();
 
