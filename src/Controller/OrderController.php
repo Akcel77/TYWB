@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Entity\Ride;
@@ -57,6 +58,20 @@ class OrderController extends AbstractController
         ]);
 
         $form->handleRequest($request);
+
+        $moto = $form->get('motos')->getData();
+        $moto_weight = $moto->getWeight();
+        $passengers = $form->getData();
+        $passenger = $passengers['passengers'];
+
+        $moto_content = $moto->getBrand().' '.$moto->getModel();
+        $moto_content .= '<br/>'.$moto->getMatriculation();
+        $moto_content .= '<br/>'. $moto->getWeight().' kg';
+
+        $mail = new Mail();
+        $content = $this->getUser()->getFullName() . " a tenter de faire une reservation <strong>". $moto->getBrand() . $moto->getModel() . $passenger ." </br><br>Adresse email : ".$this->getUser()->getEmail()." </br><br>Message : <br>".$moto->getWeight()."kg</br></br>";
+
+        $mail->send('contact@travelwithyourbike.com', 'Travel with your bike', 'Vous avez recu une nouvelle demande de contact', $content);
 
         //verifie si la commande est existante
         if ($form->isSubmitted() && $form->isValid()) {
