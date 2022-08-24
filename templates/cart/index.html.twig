@@ -8,7 +8,7 @@
 
     {% if cart|length > 0 %}
             {% for ride in cart %}
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col-md-5">
                         <img src="/uploads/{{ ride.ride.illustration }}" alt="{{ ride.ride.title }}" class="img-fluid">
                     </div>
@@ -21,8 +21,8 @@
                             {{ ride.ride.description }}
                         </p>
                         <div class="text-right">
-                            <a href="{{ path('order') }}" class="btn btn-primary btn-block mt-5">Valider ma réservation</a>
-                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-danger btn-block mt-1">Annuler ma réservation</a>
+                            <a href="{{ path('order') }}" class="btn btn-primary btn-block w-50 mt-5 mx-auto">Valider ma réservation</a>
+                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-danger btn-block w-50 mt-1 mx-auto">Annuler ma réservation</a>
 
                         </div>
 
