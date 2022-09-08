@@ -3,15 +3,39 @@
 {% block title %}Inscription - Travel With Your Bike{% endblock %}
 
 {% block content %}
-    <h1>Inscription</h1>
+    <div class="w-75 mx-auto">
+        <h1>Inscription</h1>
 
-    {% if notification %}
-        <div class="alert alert-success">
-            {{ notification }}
-        </div>
-        <hr>
-    {% endif %}
+        {% if notification %}
+            <div class="alert alert-success">
+                {{ notification }}
+            </div>
+            <hr>
 
-    {{ form(form) }}
 
+        {% endif %}
+
+
+        {{ form(form) }}
+
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function Afficher()
+    {
+        var input = document.getElementById("motdepasse");
+        if (input.type === "password")
+        {
+            input.type = "text";
+        }
+        else
+        {
+            input.type = "password";
+        }
+    }
+</script>
 {% endblock %}

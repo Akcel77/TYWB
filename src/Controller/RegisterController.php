@@ -54,6 +54,8 @@ class RegisterController extends AbstractController
                 $mail->send($user->getEmail(), $user->getUsername(), 'Bienvenue sur le site Travel With Your Bike', $content);
 
                 $notification = 'Votre compte a bien été créé !';
+
+                return $this->redirectToRoute('app_login');
             }
 
 
