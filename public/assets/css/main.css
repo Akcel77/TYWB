@@ -93,3 +93,19 @@ h5{
 .text-decoration-underline{
     text-decoration : underline;
 }
+
+.number {
+    font-size: 4rem;
+    text-align: left!important;
+}
+.number-text{
+    background-color: rgba(210, 22, 54, 0.89);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0 rgba(0,0,0,.2);
+}
+
+p{
+    text-align: justify;
+}
+
