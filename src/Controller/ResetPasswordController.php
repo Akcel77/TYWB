@@ -51,9 +51,11 @@ class ResetPasswordController extends AbstractController
 
                 $mail = new Mail();
                 $mail->send($user->getEmail(), $user->getFirstname(), 'Réinitialisation de votre mot de passe sur le site NomDuSite', $content);
-                dd($user->getEmail());
+
 
                 $this->addFlash('notice', 'Un email vous a été envoyé pour réinitialiser votre mot de passe');
+
+                return $this->redirectToRoute('home');
 
             }else{
                 $this->addFlash('notice', 'Cette adresse email n\'existe pas');
