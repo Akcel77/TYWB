@@ -95,17 +95,13 @@ h5{
 }
 
 .number {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: left!important;
 }
-.number-text{
-    background-color: rgba(229, 221, 221, 0.89);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem 0 rgba(0,0,0,.2);
-}
 
-p{
+.paragraph-block {
     text-align: justify;
 }
+
+
 
