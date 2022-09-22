@@ -16,73 +16,10 @@
         </div><!-- /.row -->
     {% endif %}
 
-
-
-    <hr class="featurette-divider">
-
-    <h1>Comment fonctionne Travel With Your Bike ? </h1>
-
-    <div class="number-container row">
-        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="100">
-            <p class="number">1</p>
-            <p class="number-text">Trouvez votre trajet entre Calais-Marseille, Calais-Grenoble ou Calais-Cahors</p>
-        </div>
-
-        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="200">
-            <p class="number">2</p>
-            <p class="number-text">Libero corrupti omnis consequatur</p>
-        </div>
-
-        <div class="number-row col-md-3 mx-auto text-center" data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="300">
-            <p class="number">3</p>
-            <p class="number-text">Libero corrupti omnis consequatur</p>
-        </div>
-    </div>
-    <div class="number-container row">
-        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="100">
-            <p class="number">1</p>
-            <p class="number-text">Libero corrupti omnis consequatur </p>
-        </div>
-
-        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="200">
-            <p class="number">2</p>
-            <p class="number-text">Libero corrupti omnis consequatur</p>
-        </div>
-
-        <div class="number-row col-md-3 mx-auto text-center" data-aos="flip-up"
-             data-aos-easing="ease-out-cubic"
-             data-aos-duration="2000"
-             data-aos-delay="300">
-            <p class="number">3</p>
-            <p class="number-text">Libero corrupti omnis consequatur</p>
-        </div>
-    </div>
-
-
-
-
-
-    <hr class="featurette-divider">
-
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading mb-5">Que proposons nous ?</h2>
-            <p>Nous vous proposons un transport sécurisé de nuit pour vous et votre moto sur plusieurs grandes
+            <p class="paragraph-block">Nous vous proposons un transport sécurisé de nuit pour vous et votre moto sur plusieurs grandes
                 destinations de France au départ de Calais. <br><br>
                 Pour cette première année les arrivées se feront à Marseille, Grenoble ou encore Cahors.
                 À raison de deux à trois départs par semaine selon le planning, vous embarquez en soirée, votre moto
@@ -96,14 +33,122 @@
         </div>
     </div>
 
+    <hr class="featurette-divider">
+
+    <h3 class="text-center">Comment fonctionne Travel With Your Bike ? </h3>
+    <hr class="w-50 mb-5">
+
+    <div class="number-container row mb-5 mx-auto">
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">1</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Itinéraire</h6>
+                    <hr>
+                    <p class="card-text">Trouvez votre trajet parmis les itinéraires suivants Calais-Marseille, Calais-Grenoble ou Calais-Cahors.
+                        <a href="{{ path('rides') }}">ici</a></p>
+                    <img src="{{ asset('assets/img/road.png') }}" class="img-fluid col-md-6 test" alt="Avatar route">
+                </div>
+            </div>
+        </div>
+
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Réservation</h6>
+                    <hr>
+                    <p class="card-text">Réservez votre trajet pour votre moto remoquée avec la possibilité de participer au voyage dans notre van équipé.</p>
+                    <img src="{{ asset('assets/img/booking.png') }}" class="img-fluid col-md-6 test" alt="Avatar route">
+                </div>
+            </div>
+        </div>
+
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">3</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Chargement</h6>
+                    <hr>
+                    <p class="card-text">Prise en charge et chargement de la moto sur la remorque au point de rendez-vous en fonction de l'itinéraire</p>
+                    <img src="{{ asset('assets/img/motorbike.png') }}" class="img-fluid col-md-6" alt="Avatar route">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="number-container row mx-auto">
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">4</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Trajet</h6>
+                    <hr>
+                    <p class="card-text">Trajet de nuit jusqu'au point défini lors de la réservation</p>
+                    <img src="{{ asset('assets/img/measure-distance.png') }}" class="img-fluid col-md-6 test" alt="Avatar route">
+                </div>
+            </div>
+        </div>
+
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">5</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Déchargement</h6>
+                    <hr>
+                    <p class="card-text">Déchargement de votre moto au point d'arrivée le lendemain matin</p>
+                    <img src="{{ asset('assets/img/bike.png') }}" class="img-fluid col-md-6 test" alt="Avatar route">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="number-row col-md-3 mx-auto text-center"  data-aos="flip-up"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2000"
+             data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title number">6</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Profiter</h6>
+                    <hr>
+                    <p class="card-text">Il ne vous reste plus qu'a profiter du lieux !</p>
+                    <img src="{{ asset('assets/img/road.png') }}" class="img-fluid col-md-6 test" alt="Avatar route">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
 
 
     <hr class="featurette-divider">
 
+
+
     <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading mb-5">Quels avantages offrent ce service ? </h2>
-            <p>Premièrement ce service vous permet d’éviter 1000 km d'autoroute monotone, deuxièmement vous
+            <p class="paragraph-block">Premièrement ce service vous permet d’éviter 1000 km d'autoroute monotone, deuxièmement vous
                 pourrez vous économiser physiquement et le plus important, vous préservez votre machine (pneu,
                 moteur, usure) pour finir vous arrivez en pleine forme à destination.<br> <br>
                 Aussi, nous vous proposons un prix fixe qui englobe le transport, l’arrimage et la sécurité, fini les
@@ -121,7 +166,7 @@
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading mb-5">Pourquoi ces trajets ?</h2>
-            <p><strong>De Calais à Marseille : </strong>si vous désirez vous rendre en Corse il ne vous reste qu'à prendre le bateau,
+            <p class="paragraph-block"><strong>De Calais à Marseille : </strong>si vous désirez vous rendre en Corse il ne vous reste qu'à prendre le bateau,
                 aussi, vous êtes à proximité de la frontière italienne ou encore vous pouvez profiter de la Côte d'Azur.
                 <br><br>
                 <strong>De Calais à Grenoble :</strong> vous aurez le loisir de prendre la n 85, route Napoléon, balade mythique pour le
