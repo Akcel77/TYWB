@@ -10,7 +10,9 @@
         <div class="col-md-7 my-auto">
             <h3>{{ ride.title }}</h3>
             <p>{{ ride.subtitle }}</p>
-            <span class="product-page-price">{{ (ride.price / 100)|number_format(2, ',', '.') }} €</span>
+            <span class="product-price">Prix total du voyage : 380,00 €</span><br>
+            <span class="product-price"><strong>A payer aujourd'hui : {{ (ride.price / 100)|number_format(2, ',', '.') }} € / passager </strong></span> <br>
+
             <hr>
             <p>
                 {{ ride.description | raw }}
