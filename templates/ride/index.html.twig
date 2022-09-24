@@ -31,10 +31,9 @@
                                     <span class="product-subtitle"><strong>Départ le :</strong> <br> {{ ride.departureDate|format_datetime(locale='fr') }}</span>
                                     <span class="product-subtitle"><strong>Arrivée le :</strong> <br> {{ ride.arrivalDate|format_datetime(locale='fr') }}</span>
                                 <hr>
-                                    <span class="product-price"><strong>Prix du voyage :</strong> 299,90 €</span> <br>
-                                    <span class="product-price"><strong>A payer aujourd'hui : {{ (ride.price / 100)|number_format(2, ',', '.') }} €</strong></span> <br>
-
-                                    <a href="{{ path('ride', {'slug': ride.slug} ) }}" class="btn btn-primary mt-2">Choisir cette date</a>
+                                    <span class="product-price"><strong>Prix du voyage :</strong> 380,00 €</span> <br>
+                                    <span class="product-price"><strong>A payer aujourd'hui : {{ (ride.price / 100)|number_format(2, ',', '.') }} € / passager </strong></span> <br>
+                                    <a href="{{ path('ride', {'slug': ride.slug} ) }}" class="btn btn-primary mt-2">Plus d'infos</a>
                                 </p>
                             </div>
                         </div>
