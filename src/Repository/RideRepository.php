@@ -57,11 +57,11 @@ class RideRepository extends ServiceEntityRepository
                 ->setParameter('categories', $search->categories);
         }
 
-//        if(!empty($search->string)) {
-//            $query = $query
-//                ->andWhere('r.name LIKE :string')
-//                ->setParameter('string', "%{$search->string}%");
-//        }
+        if(!empty($search->date)) {
+            $query = $query
+                ->andWhere('r.departureDate > :date ')
+                ->setParameter('date', $search->date);
+        }
 
         return $query->getQuery()->getResult();
     }
