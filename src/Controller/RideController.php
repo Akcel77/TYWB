@@ -7,6 +7,7 @@ use App\Classe\Search;
 use App\Entity\Ride;
 use App\Form\SearchType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,7 @@ class RideController extends AbstractController
     /**
      * @Route("/ride", name="rides")
      */
-    public function index(Request $request, Cart $cart): Response
+    public function index(PaginatorInterface $paginator, Request $request, Cart $cart): Response
     {
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
@@ -33,9 +34,17 @@ class RideController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $rides = $this->entityManager->getRepository(Ride::class)->findWithSearch($search);
+            $rides = $paginator->paginate(
+                $this->entityManager->getRepository(Ride::class)->findWithSearch($search),
+                $request->query->getInt('page', 1), /*page number*/
+                9 /*limit per page*/
+            );
         }else{
-            $rides = $this->entityManager->getRepository(Ride::class)->findAll();
+            $rides = $paginator->paginate(
+                $this->entityManager->getRepository(Ride::class)->findAll(),
+                $request->query->getInt('page', 1), /*page number*/
+                9 /*limit per page*/
+            );
         }
 
         return $this->render('ride/index.html.twig', [
