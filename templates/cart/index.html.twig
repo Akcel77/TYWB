@@ -18,7 +18,7 @@
                         <span class="product-page-price">{{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span>
                         <hr>
                         <p>
-                            {{ ride.ride.description }}
+                            {{ ride.ride.description | raw}}
                         </p>
                         <div class="text-right">
                             <a href="{{ path('order') }}" class="btn btn-primary btn-block w-50 mt-5 mx-auto">Valider ma réservation</a>
