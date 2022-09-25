@@ -15,14 +15,15 @@
                     <div class="col-md-7 my-auto">
                         <h3>{{ ride.ride.title }}</h3>
                         <p>{{ ride.ride.subtitle }}</p>
-                        <span class="product-page-price">{{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span>
+                        <span class="product-price">Prix total du voyage : 380,00 €</span><br>
+                        <span class="product-page-price">A payer aujourd'hui : {{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span>
                         <hr>
                         <p>
                             {{ ride.ride.description | raw}}
                         </p>
                         <div class="text-right">
-                            <a href="{{ path('order') }}" class="btn btn-primary btn-block w-50 mt-5 mx-auto">Valider ma réservation</a>
-                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-danger btn-block w-50 mt-1 mx-auto">Annuler ma réservation</a>
+                            <a href="{{ path('order') }}" class="btn btn-primary btn-block w-50 mt-5 ">Valider ma réservation</a>
+                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-danger btn-block w-50 mt-1 ">Annuler ma réservation</a>
 
                         </div>
 
