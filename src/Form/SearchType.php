@@ -20,7 +20,7 @@ class SearchType extends AbstractType
     {
         $builder
             ->add('date', DateType::class, [
-                'label' => 'Date de départ : ',
+                'label' => 'Départ à partir du : ',
                 'required' => false,
                 'widget' => 'single_text',
                   'html5' => false,
