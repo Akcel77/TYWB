@@ -6,7 +6,7 @@
     <h2>Erreur de réservation</h2>
     <p>Bonjour <strong>{{ order.user.lastname }} {{ order.user.firstname }}</strong><br><br></p>
     <p>Il semblerait que votre paiement est échoué pour votre réservation nº <strong>{{ order.reference }}</strong></p><br>
-    <p>Une confimation d'erreur vient de vous etre envoye par email<strong> {{ order.user.email }}</strong></p>
+    <p>Une confirmation d'erreur vient de vous être envoyé par email<strong> {{ order.user.email }}</strong></p>
     <hr>
     <a href="{{ path('order') }}" class="btn btn-primary">Réessayer le paiement</a>
 {% endblock %}

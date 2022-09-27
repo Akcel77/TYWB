@@ -5,7 +5,7 @@
 {% block content %}
     <h2>Je valide mon trajet</h2>
 
-    <p>Choissez votre moto avant de valider votre voyage avec Travel With Your Bike</p>
+    <p>Choisissez votre moto avant de valider votre voyage avec Travel With Your Bike</p>
     <hr>
     <div class="row">
         <div class="col-md-7">
@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-5 block-order-summary">
             <div class="text-center mb-5">
-                <h4>Retrouver le recapitulatif de votre trajet</h4>
+                <h4>Retrouver le récapitulatif de votre trajet</h4>
             </div>
             <div class="order-summary my-auto ml-3 mt-3">
                 {% for ride in cart %}
@@ -39,7 +39,7 @@
                             <span class="product-subtitle"><strong>Départ le :</strong>  {{ride. ride.departureDate|format_datetime(locale='fr') }}</span><br>
                             <span class="product-subtitle"><strong>Arrivée le :</strong> {{ ride.ride.arrivalDate|format_datetime(locale='fr') }}</span><br>
                             <span class="product-price"><strong>Prix total du voyage : </strong>380,00 €</span><br>
-                            <strong>A payer aujourd'hui <small>(accompte)</small> : </strong> {{ (ride.ride.price / 100 )|number_format(2, ',','.') }}  €</span>
+                            <span class="product-price"><strong>A payer aujourd'hui <small>(acompte)</small> : </strong> {{ (ride.ride.price / 100 )|number_format(2, ',','.') }}  €</span>
                             <br>
                         </div>
 
