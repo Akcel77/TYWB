@@ -106,26 +106,26 @@
                 {% endfor %}
 
             </ol>
-            <div class="carousel-inner">
-                {% for key,header in headers  %}
-                    <div class="carousel-item img-fluid {% if key == 0 %}active{% endif %}"
-                         style="
-                            background: url('uploads/{{ header.illustration }}');
-                            background-position: centerbackground-repeat: no-repeat;
-                            background-attachment: fixed;
-                            background-size: 100% 100%;
-                            ">
 
-                        <div class="container">
-{#                            <div class="carousel-caption text-center">#}
-{#                                <h1>{{ header.title }}</h1>#}
-{#                                <p>{{ header.content }}</p>#}
-{#                                <p><a class="btn btn-lg btn-danger" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>#}
-{#                            </div>#}
+                <div class="carousel-inner">
+                    {% for key,header in headers  %}
+                        <div class="banner-carousel carousel-item img-fluid {% if key == 0 %}active{% endif %}"
+                             style="background: url('uploads/{{ header.illustration }}') no-repeat fixed center center;
+                                        background-size: cover;
+                                     ">
+
+                            <div class="container">
+                                {#                            <div class="carousel-caption text-center">#}
+                                {#                                <h1>{{ header.title }}</h1>#}
+                                {#                                <p>{{ header.content }}</p>#}
+                                {#                                <p><a class="btn btn-lg btn-danger" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>#}
+                                {#                            </div>#}
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+
+
             {% if headers|length > 1 %}
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
