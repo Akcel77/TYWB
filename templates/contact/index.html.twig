@@ -3,29 +3,30 @@
 {% block title %}Nous contacter - Travel With Your Bike{% endblock %}
 
 {% block content %}
-    <h2>Nous contacter</h2>
-    <p>N'hésitez pas à prendre contact avec notre équipe, nous vous répondrons dans les meilleurs délais.</p>
-    {% for message in app.flashes('notice')  %}
-        <div class="alert alert-info">
-            {{ message }}
+        <h2>Nous contacter</h2>
+        <p>N'hésitez pas à prendre contact avec notre équipe, nous vous répondrons dans les meilleurs délais.</p>
+        {% for message in app.flashes('notice')  %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="row contact-block">
+            <div class="col-md-8 contact-block-left">
+                {{ form(form) }}
+            </div>
+            <div class="col-md-4">
+                <h4>Informations</h4>
+                <p>
+                    <strong><span class="contact-title">Travel With Your Bike</span></strong>
+                    <br>
+                    <strong>Adresse du site :</strong><br>11 Lotissement Savy Larigaldie, 46090 Pradines
+                    <br>
+                    <strong>Téléphone :</strong> 0660422547
+                    <br>
+                    <strong>Email : </strong>contact@travelwithyourbike.com
+                </p>
+            </div>
         </div>
-    {% endfor %}
-    <div class="row">
-        <div class="col-md-8">
-            {{ form(form) }}
-        </div>
-        <div class="col-md-4">
-            <h4>Informations</h4>
-            <p>
-                <strong>Travel With Your Bike</strong>
-                <br>
-                <strong>Adresse du site :</strong><br>11 Lotissement Savy Larigaldie, 46090 Pradines
-                <br>
-                <strong>Téléphone :</strong> 0660422547
-                <br>
-                <strong>Email : </strong>contact@travelwithyourbike.com
-            </p>
-        </div>
-    </div>
+
 
 {% endblock %}
