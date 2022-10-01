@@ -24,9 +24,11 @@ class OrderType extends AbstractType
                 'label' => false,
             ])
             ->add('passengers', IntegerType::class, [
-                'label' => 'Nombre de passager,Maximum : 2 (+ 50,00€)',
+                'label' => 'Nombre de passager,Maximum : 2 (+ 50,00€ sur le total)',
                 'attr' => [
                     'placeholder' => 'Merci de saisir le nombre de passager',
+                    'min' => 1,
+                    'max' => 2
                 ]
             ])
             ->add('submit', SubmitType::class, [
