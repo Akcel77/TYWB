@@ -6,6 +6,7 @@
     <h2>Je valide mon trajet</h2>
 
     <p>Choisissez votre moto avant de valider votre voyage avec Travel With Your Bike</p>
+    <span class="badge-danger">Attention en cas de mauvaises informations sur la moto, nous pouvons vous refuser le voyage</span><br>
     <hr>
     <div class="row">
         <div class="col-md-7">
@@ -41,6 +42,7 @@
                             <span class="product-price"><strong>Prix total du voyage : </strong>380,00 €</span><br>
                             <span class="product-price"><strong>A payer aujourd'hui <small>(acompte)</small> : </strong> {{ (ride.ride.price / 100 )|number_format(2, ',','.') }}  €</span>
                             <br>
+                            <small><strong>Le payement du solde restant se fera en espèce et au chargement</strong></small>
                         </div>
 
                     </div>
