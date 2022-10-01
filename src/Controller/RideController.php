@@ -41,7 +41,7 @@ class RideController extends AbstractController
             );
         }else{
             $rides = $paginator->paginate(
-                $this->entityManager->getRepository(Ride::class)->findAll(),
+                $this->entityManager->getRepository(Ride::class)->findGoodRide(),
                 $request->query->getInt('page', 1), /*page number*/
                 9 /*limit per page*/
             );
