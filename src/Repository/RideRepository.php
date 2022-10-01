@@ -66,6 +66,29 @@ class RideRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * Requete qui me permet de recuperer les trajets en fonction de la date du poids et du chagement de personne
+     * @return Ride[]
+     */
+    public function findGoodRide()
+    {
+        $now = new \DateTime(3 . ' days');
+        $minWeight = 150;
+        $minPeople = 1;
+        $query = $this
+            ->createQueryBuilder('r')
+            ->select('r')
+            ->where('r.departureDate > :date')
+            ->andWhere('r.maxWeight >= :weight')
+            ->andWhere('r.maxPeople >= :people')
+            ->setParameter('date', $now)
+            ->setParameter('weight', $minWeight )
+            ->setParameter('people', $minPeople)
+            ->orderBy('r.departureDate', 'ASC');
+        return $query->getQuery()->getResult();
+    }
+
+
 //    /**
 //     * @return Ride[] Returns an array of Ride objects
 //     */
