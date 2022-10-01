@@ -10,10 +10,11 @@
         </div>
 
         <div class="col-md-9 col-12">
+
             <h1>Nos dates</h1>
             <div class="row product-container">
                 {% for ride in rides %}
-                    {% if ride.maxPeople > 0 and ride.maxWeight > 0 %}
+
                     <div class="col-md-4 col-6">
                         <div class="product-item card text-center">
                             <a href="{{ path('ride', {'slug': ride.slug} ) }}"><img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid card-img-top" ></a>
@@ -36,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    {% endif %}
+
 
                 {% endfor %}
 
