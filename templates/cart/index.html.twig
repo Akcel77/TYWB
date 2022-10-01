@@ -8,6 +8,7 @@
 
     {% if cart|length > 0 %}
             {% for ride in cart %}
+                <a href="{{ path('rides') }}" class="btn btn-outline-primary my-3">Ajouter un voyage retour</a>
                 <div class="row mb-5">
                     <div class="col-md-5">
                         <img src="/uploads/{{ ride.ride.illustration }}" alt="{{ ride.ride.title }}" class="img-fluid">
@@ -16,14 +17,15 @@
                         <h3>{{ ride.ride.title }}</h3>
                         <p>{{ ride.ride.subtitle }}</p>
                         <span class="product-price">Prix total du voyage : 380,00 €</span><br>
-                        <span class="product-page-price">A payer aujourd'hui : {{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span>
+                        <span class="product-page-price">A payer aujourd'hui : {{ (ride.ride.price / 100)|number_format(2, ',', '.') }} €</span><br>
+                        <small><strong>Le payement du solde restant se fera en espèce et au chargement</strong></small>
                         <hr>
                         <p>
                             {{ ride.ride.description | raw}}
                         </p>
                         <div class="text-right">
                             <a href="{{ path('order') }}" class="btn btn-primary btn-block w-50 mt-5 ">Valider ma réservation</a>
-                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-danger btn-block w-50 mt-1 ">Annuler ma réservation</a>
+                            <a href="{{ path('delete_to_cart', { 'id' : ride.ride.id }) }}" class="btn btn-outline-danger btn-block w-50 mt-1 ">Annuler ma réservation</a>
 
                         </div>
 

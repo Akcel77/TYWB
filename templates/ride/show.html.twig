@@ -3,7 +3,9 @@
 {% block title %}{{ ride.title }} - Travel With Your Bike{% endblock %}
 
 {% block content %}
+
     <div class="row">
+
         <div class="col-md-5">
             <img src="/uploads/{{ ride.illustration }}" alt="{{ ride.title }}" class="img-fluid">
         </div>
@@ -17,7 +19,10 @@
             <p>
                 {{ ride.description | raw }}
             </p>
-            <a href="{{ path('add_to_cart', { 'id' : ride.id }) }}" class="btn btn-primary">Choisir cette date</a>
+
+
+            <a href="{{ path('add_to_cart', { 'id' : ride.id }) }}" class="btn btn-primary mt-5">Choisir cette date</a><br>
+            <small><strong>Le payement du solde restant se fera en espèce et au chargement</strong></small>
         </div>
     </div>
     <hr>
