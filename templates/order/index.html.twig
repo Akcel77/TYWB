@@ -9,20 +9,33 @@
     <span class="badge-danger">Attention en cas de mauvaises informations sur la moto, nous pouvons vous refuser le voyage</span><br>
     <hr>
     <div class="row">
-        <div class="col-md-7">
+{#        {% if moto|length < 1 %}#}
+{#        <div class="col-md-7">#}
+{#            <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>#}
+{#        </div>#}
+{#        {% else %}#}
+            <div class="col-md-7">
 
-            {% set formHtml %}
-                {{ form_start(form, {action:path('order_recap' )}) }}
-                {{ form_label(form.motos, 'Choissez votre moto') }}
-                <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>
-                {{ form_end(form) }}
-            {% endset %}
+                {% set formHtml %}
+                    {{ form_start(form, {action:path('order_recap' )}) }}
+                    {{ form_label(form.motos, 'Choissez votre moto') }}
+                    {% if form.motos|length >= 1 %}
+                        <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>
+                        {{ form_end(form) }}
+                    {% else %}
+                        <a href="{{ path('account_moto_add') }}"> Ajouter une nouvelle moto</a>
+                    {% endif %}
 
-            {{ formHtml|replace({'[br]' : '<br/>', '[strong]' : '<strong>', '[/strong]' : '</strong>'})|raw }}
+
+                {% endset %}
+
+                {{ formHtml|replace({'[br]' : '<br/>', '[strong]' : '<strong>', '[/strong]' : '</strong>'})|raw }}
 
 
 
-        </div>
+            </div>
+{#        {% endif %}#}
+
         <div class="col-md-5 block-order-summary">
             <div class="text-center mb-5">
                 <h4>Retrouver le récapitulatif de votre trajet</h4>
