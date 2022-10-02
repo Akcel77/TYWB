@@ -40,6 +40,7 @@ class OrderCrudController extends AbstractCrudController
             IdField::new('id'),
             DateTimeField::new('createdAt', 'Passée le'),
             TextField::new('user.getFullName', 'Utilisateur '),
+            TextField::new('user.email', 'Email '),
             TextEditorField::new('moto', 'Moto')->formatValue(function ($value) { return $value; })->onlyOnDetail(),
             ArrayField::new('orderDetails', 'Trajet')->hideOnIndex(),
             IntegerField::new('passengers', 'Nombre de passagers'),
